@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Dangnhap">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ellipse" />
+
+                <ImageView
+                    android:id="@+id/logofood"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/logofooter" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/vien"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="84dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="30dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/edt_noti_account_login"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:errorEnabled="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edt_account_login"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@drawable/accountonoff"
+                            android:drawableLeft="@drawable/accountonoff"
+                            android:drawablePadding="12dp"
+                            android:fontFamily="@font/baloo2_semibold"
+                            android:hint="Tài khoản"
+                            android:inputType="textEmailAddress"
+                            android:paddingStart="12dp"
+                            android:paddingLeft="12dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="30dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/edt_noti_password_login"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:errorEnabled="true"
+                        app:passwordToggleEnabled="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edt_password_login"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@drawable/keyon"
+                            android:drawableLeft="@drawable/keyon"
+                            android:drawablePadding="12dp"
+                            android:fontFamily="@font/baloo2_semibold"
+                            android:hint="Mật khẩu"
+                            android:inputType="textPassword"
+                            android:paddingStart="12dp"
+                            android:paddingLeft="12dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp">
+
+                    <TextView
+                        android:id="@+id/btn_register_login"
+                        android:layout_width="wrap_content"
+                        android:layout_height="17dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginRight="218dp"
+                        android:layout_marginBottom="33dp"
+                        android:fontFamily="@font/baloo2_semibold"
+                        android:text="Đăng ký"
+                        android:textColor="@color/teal_200" />
+
+                    <TextView
+                        android:id="@+id/btn_forgot_login"
+                        android:layout_width="wrap_content"
+                        android:layout_height="17dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginBottom="32dp"
+                        android:fontFamily="@font/baloo2_semibold"
+                        android:text="Quên mật khẩu ?"
+                        android:textColor="@color/teal_200" />
+                </RelativeLayout>
+            </LinearLayout>
+
+
+                <android.widget.Button
+                    android:layout_marginTop="15dp"
+                    android:id="@+id/btn_login_login"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/goc_15dp"
+                    android:backgroundTint="#FFC107"
+                    android:fontFamily="@font/baloo2_semibold"
+                    android:gravity="center"
+                    android:text="Đăng nhập"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+
+
+
+            <ImageView
+                android:id="@+id/btn_finger_login"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/ic_baseline_fingerprint_24" />
+
+            <TextView
+                android:id="@+id/btn_privacy_login"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="40dp"
+                android:fontFamily="@font/baloo2_semibold"
+                android:gravity="center"
+                android:text="Điều khoản sử dụng"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>

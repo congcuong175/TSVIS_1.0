@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/frag_home"
+        android:enabled="true"
+        android:icon="@drawable/ic_home"
+        android:title="Trang chủ"
+        app:cnb_iconColor="@color/white"
+        app:cnb_textColor="@color/white"
+        app:cnb_backgroundColor="#FF5722"
+        />
+    <item
+        android:id="@+id/feag_lich"
+        android:enabled="true"
+        android:icon="@drawable/ic_calendar"
+        android:title="Lịch học"
+        app:cnb_iconColor="@color/white"
+        app:cnb_textColor="@color/white"
+        app:cnb_backgroundColor="#FF5722"/>
+    <item
+        android:id="@+id/frag_tin_tuc"
+        android:enabled="true"
+        android:icon="@drawable/ic_news__1_"
+        android:title="Tin tức"
+        app:cnb_iconColor="@color/white"
+        app:cnb_textColor="@color/white"
+        app:cnb_backgroundColor="#FF5722"/>
+    <item
+        android:id="@+id/frag_taikhoan"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_account_circle_24"
+        android:title="Tài khoản"
+        app:cnb_iconColor="@color/white"
+        app:cnb_textColor="@color/white"
+        app:cnb_backgroundColor="#FF5722"/>
+
+</menu>
