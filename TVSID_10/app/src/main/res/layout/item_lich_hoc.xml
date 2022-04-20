@@ -30,7 +30,7 @@
                 android:gravity="center"
                 android:text="20-12-2021"
                 android:textColor="@color/black"
-                android:textSize="30dp" />
+                android:textSize="20dp" />
 
             <TextView
                 android:layout_weight="1"
@@ -41,7 +41,7 @@
                 android:gravity="center"
                 android:text="Thứ 2"
                 android:textColor="@color/black"
-                android:textSize="40dp" />
+                android:textSize="25dp" />
 
             <TextView
                 android:layout_weight="1"
@@ -52,7 +52,7 @@
                 android:gravity="center"
                 android:text="Sáng"
                 android:textColor="@color/black"
-                android:textSize="35dp" />
+                android:textSize="30dp" />
 
             <TextView
                 android:layout_weight="1"
@@ -62,8 +62,8 @@
                 android:fontFamily="@font/baloo2_semibold"
                 android:gravity="center"
                 android:text="Tiết 7 - Tiết 10"
-                android:textColor="@color/black"
-                android:textSize="45dp" />
+                android:textColor="#FB4F19"
+                android:textSize="30dp" />
 
             <TextView
                 android:layout_weight="1"
@@ -74,7 +74,7 @@
                 android:gravity="center"
                 android:text="7h15 - 10h55"
                 android:textColor="@color/black"
-                android:textSize="35dp" />
+                android:textSize="25dp" />
 
             <TextView
 
@@ -86,7 +86,7 @@
                 android:gravity="center"
                 android:text="Phân tích thiết kế phần mềm"
                 android:textColor="#4CAF50"
-                android:textSize="40dp" />
+                android:textSize="25dp" />
 
             <TextView
                 android:layout_weight="1"
@@ -98,7 +98,7 @@
                 android:gravity="center"
                 android:text="Phòng 205"
                 android:textColor="#FF5722"
-                android:textSize="40dp" />
+                android:textSize="25dp" />
             <TextView
                 android:layout_weight="1"
                 android:layout_width="match_parent"
@@ -108,7 +108,7 @@
                 android:gravity="center"
                 android:text="Giáo viên:"
                 android:textColor="@color/black"
-                android:textSize="30dp" />
+                android:textSize="20dp" />
 
             <TextView
                 android:layout_weight="1"
@@ -120,7 +120,7 @@
                 android:gravity="center"
                 android:text="Bùi Đức Thọ"
                 android:textColor="@color/black"
-                android:textSize="50dp" />
+                android:textSize="25dp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

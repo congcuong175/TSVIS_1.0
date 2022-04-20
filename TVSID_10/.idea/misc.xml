@@ -3,6 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/TSVIS_1.0/TSVIS_1.0/TVSID_10/app/src/main/res/layout/activity_home.xml" value="0.24615384615384617" />
+        <entry key="..\:/TSVIS_1.0/TSVIS_1.0/TVSID_10/app/src/main/res/layout/diem_chitiet.xml" value="0.1814814814814815" />
+        <entry key="..\:/TSVIS_1.0/TSVIS_1.0/TVSID_10/app/src/main/res/layout/fragment_bat_dau.xml" value="0.1814814814814815" />
+        <entry key="..\:/TSVIS_1.0/TSVIS_1.0/TVSID_10/app/src/main/res/layout/fragment_feag_lich.xml" value="0.1814814814814815" />
+        <entry key="..\:/TSVIS_1.0/TSVIS_1.0/TVSID_10/app/src/main/res/layout/fragment_frag_home.xml" value="0.1814814814814815" />
+        <entry key="..\:/TSVIS_1.0/TSVIS_1.0/TVSID_10/app/src/main/res/layout/fragment_frag_taikhoan.xml" value="0.1814814814814815" />
+        <entry key="..\:/TSVIS_1.0/TSVIS_1.0/TVSID_10/app/src/main/res/layout/fragment_frag_tin_tuc.xml" value="0.1814814814814815" />
+        <entry key="..\:/TSVIS_1.0/TSVIS_1.0/TVSID_10/app/src/main/res/layout/item_diem.xml" value="0.1814814814814815" />
+        <entry key="..\:/TSVIS_1.0/TSVIS_1.0/TVSID_10/app/src/main/res/layout/item_diemhoc.xml" value="0.1814814814814815" />
+        <entry key="..\:/TSVIS_1.0/TSVIS_1.0/TVSID_10/app/src/main/res/layout/item_lich_hoc.xml" value="0.1814814814814815" />
         <entry key="..\:/android/TVSID_10/app/src/main/res/drawable-v24/account2.xml" value="0.2985" />
         <entry key="..\:/android/TVSID_10/app/src/main/res/drawable-v24/border_id_card_top.xml" value="0.2985" />
         <entry key="..\:/android/TVSID_10/app/src/main/res/drawable-v24/btn_435.xml" value="0.2985" />
