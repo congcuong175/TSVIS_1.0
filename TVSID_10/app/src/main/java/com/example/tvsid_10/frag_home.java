@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 
 import java.util.ArrayList;
 
@@ -22,6 +24,10 @@ public class frag_home extends Fragment {
     diem_hoc_adpater diem_hoc_adpater;
     ArrayList<String> arrayList=new ArrayList<>();
     Dialog dialog;
+    AutoCompleteTextView atctv_hocky_ttcn,atctv_namhoc_ttcn,atctv_nganhhoc_ttcn;
+    String[] hockys={"1","2"};
+    String[] namhocs={"2014-2015","2015-2016","2016-2017","2017-2018","2018-2019","2019-2020","2020-2021","2021-2022","2022-2023","2023-2024"};
+    String[] nganhHocs={"Chuyên ngành chính","Chuyên ngành 2"};
     public frag_home() {
         // Required empty public constructor
     }
@@ -39,6 +45,9 @@ public class frag_home extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         item1=view.findViewById(R.id.item1);
         item2=view.findViewById(R.id.item2);
+        atctv_hocky_ttcn=view.findViewById(R.id.atctv_hocky_ttcn);
+        atctv_namhoc_ttcn=view.findViewById(R.id.atctv_namhoc_ttcn);
+        atctv_nganhhoc_ttcn=view.findViewById(R.id.atctv_nganhhoc_ttcn);
         dialog=new Dialog(getActivity());
         arrayList.add("3");
         arrayList.add("6");
@@ -57,5 +66,13 @@ public class frag_home extends Fragment {
         item2.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false));
         item2.setAdapter(diem_hoc_adpater);
         diem_hoc_adpater.notifyDataSetChanged();
+
+        ArrayAdapter arrayHocKy=new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1,hockys);
+        atctv_hocky_ttcn.setAdapter(arrayHocKy);
+        ArrayAdapter arrayNamHoc=new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1,namhocs);
+        atctv_namhoc_ttcn.setAdapter(arrayNamHoc);
+        ArrayAdapter arrayNganhHoc=new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1,nganhHocs);
+        atctv_nganhhoc_ttcn.setAdapter(arrayNganhHoc);
+
     }
 }
