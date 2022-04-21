@@ -11,15 +11,16 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tvsid_10.Entity.TBDEntity;
 import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 
 import java.util.List;
 
 public class diem_adpater extends RecyclerView.Adapter<diem_adpater.diem_Viewholder> {
-    List<String> list;
+    List<TBDEntity> list;
     Context context;
 
-    public diem_adpater(List<String> list, Context context) {
+    public diem_adpater(List<TBDEntity> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -33,11 +34,10 @@ public class diem_adpater extends RecyclerView.Adapter<diem_adpater.diem_Viewhol
 
     @Override
     public void onBindViewHolder(@NonNull diem_adpater.diem_Viewholder holder, int position) {
-        String s=list.get(position);
-        holder.circularProgressBar.setColor(ContextCompat.getColor(context, R.color.purple_200));
-     int animationDuration = 2500; // 2500ms = 2,5s
-        holder.circularProgressBar.setProgressWithAnimation(65, animationDuration); // Default duration = 1500ms
+        TBDEntity s=list.get(position);
 
+        holder.tv_diem_diem.setText(s.getDiem()+"");
+        holder.tv_tenloaitc_diem.setText(s.getName());
     }
 
     @Override
@@ -46,11 +46,11 @@ public class diem_adpater extends RecyclerView.Adapter<diem_adpater.diem_Viewhol
     }
 
     public class diem_Viewholder extends RecyclerView.ViewHolder{
-        CircularProgressBar circularProgressBar;
+
         TextView tv_diem_diem,tv_tenloaitc_diem;
         public diem_Viewholder(@NonNull View itemView) {
             super(itemView);
-             circularProgressBar = itemView.findViewById(R.id.yourCircularProgressbar);
+
             tv_diem_diem=itemView.findViewById(R.id.tv_diem_diem);
             tv_tenloaitc_diem=itemView.findViewById(R.id.tv_tenloaitc_diem);
         }

@@ -23,6 +23,7 @@
             android:textSize="20dp" />
 
         <TextView
+            android:id="@+id/tv_mahp_diemhoc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -46,6 +47,7 @@
             android:textSize="20dp" />
 
         <TextView
+            android:id="@+id/tv_tenhp_diemhoc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -69,6 +71,7 @@
             android:textSize="20dp" />
 
         <TextView
+            android:id="@+id/tv_tinchi_diemhoc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -92,7 +95,7 @@
             android:textSize="20dp" />
 
         <TextView
-            android:id="@+id/txt_diem"
+            android:id="@+id/txt_diem_diemhoc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -111,6 +114,7 @@
             android:textSize="20dp" />
 
         <TextView
+            android:id="@+id/tv_diemchu_diemhoc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
