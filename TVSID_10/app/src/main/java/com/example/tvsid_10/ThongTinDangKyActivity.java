@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,11 +17,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.navigation.Navigation;
 
 import com.example.tvsid_10.Api.ApiService;
 import com.example.tvsid_10.Api.FirebaseAPI;
 import com.example.tvsid_10.Common.Common;
+import com.example.tvsid_10.Entity.SinhVien;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -60,16 +61,23 @@ public class ThongTinDangKyActivity extends AppCompatActivity {
             public void onClick(View view) {
                 ProgressDialog dialog = new ProgressDialog(ThongTinDangKyActivity.this);
                 dialog.setTitle("Đang đăng ký tài khoản");
-                Common.sinhVien.setMatKhau(Common.sinhVien.getID() + "");
+                String masv = edt_id.getText().toString();
+                String hoten = edt_name.getText().toString();
+                String ngaysinh = edt_date.getText().toString();
+                String lop = edt_classroom.getText().toString();
+                String khoahoc = edt_scholastic.getText().toString();
+                String nganh = edt_faculty.getText().toString();
+                Log.e("TAG",Common.sinhVien.getAvatar());
+                SinhVien sv = new SinhVien(Common.sinhVien.getAvatar(), hoten, Integer.parseInt(masv), khoahoc, lop, masv, nganh, ngaysinh, true);
                 dialog.show();
-                ApiService.apiservice.register(Common.sinhVien).enqueue(new Callback<Integer>() {
+                ApiService.apiservice.register(sv).enqueue(new Callback<Integer>() {
                     @Override
                     public void onResponse(Call<Integer> call, Response<Integer> response) {
                         if (response.isSuccessful()) {
                             if (response.body() > 0) {
                                 dialog.dismiss();
                                 Toast.makeText(getApplicationContext(), "Thành công", Toast.LENGTH_LONG).show();
-                                Navigation.findNavController(view).navigate(R.id.dangnhap);
+                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
                             } else {
                                 dialog.dismiss();
                                 Toast.makeText(getApplicationContext(), "Đăng ký không thành công", Toast.LENGTH_LONG).show();
@@ -124,8 +132,8 @@ public class ThongTinDangKyActivity extends AppCompatActivity {
         if (requestCode == REQUEST_GALERY && resultCode == RESULT_OK && data != null) {
             Uri uri = data.getData();
             img_avatar.setImageURI(uri);
-            String url = firebaseAPI.uploadImage(uri, Common.sinhVien);
-            Common.sinhVien.setAvatar(url);
+            firebaseAPI.uploadImage(uri, Common.sinhVien);
+
         }
     }
 }

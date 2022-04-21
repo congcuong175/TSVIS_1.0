@@ -1,9 +1,11 @@
 package com.example.tvsid_10.Api;
 
 import android.net.Uri;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.example.tvsid_10.Common.Common;
 import com.example.tvsid_10.Entity.SinhVien;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -21,8 +23,7 @@ public class FirebaseAPI {
         storageReference = firebaseStorage.getReference("Image");
     }
 
-    public String uploadImage(Uri uri, SinhVien sinhVien) {
-        final String[] url = {""};
+    public void uploadImage(Uri uri, SinhVien sinhVien) {
         storageReference = storageReference.child(sinhVien.getID() + "").child(uri.getLastPathSegment());
         storageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
@@ -31,11 +32,11 @@ public class FirebaseAPI {
                     @Override
                     public void onComplete(@NonNull Task<Uri> task) {
                         Uri uri1 = task.getResult();
-                        url[0] = uri1.toString();
+                        Common.sinhVien.setAvatar(uri1.toString());
                     }
                 });
             }
         });
-        return url[0];
+
     }
 }
