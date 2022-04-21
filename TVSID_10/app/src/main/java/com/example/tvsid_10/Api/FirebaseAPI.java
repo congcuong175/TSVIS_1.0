@@ -27,7 +27,7 @@ public class FirebaseAPI {
                     @Override
                     public void onSuccess(Uri uri) {
                         Uri downloadUrl = uri;
-                        url[0] = uri.getPath();
+                        url[0] = downloadUrl.getPath();
                     }
                 });
             }
