@@ -68,6 +68,7 @@
 
                     <TextView
                         android:id="@+id/txt_name"
+                        android:text="Cấn Công Cường"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
@@ -77,6 +78,7 @@
 
                     <TextView
                         android:id="@+id/txt_email"
+                        android:text="congcuong108@gmail.com"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/baloo2_semibold"
@@ -84,6 +86,7 @@
                         android:textSize="12dp" />
 
                     <TextView
+                        android:text="0386328935"
                         android:id="@+id/txt_sdt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -93,6 +96,7 @@
 
                     <TextView
                         android:id="@+id/txt_diachi"
+                        android:text="Phụng Thượng Phúc Thọ Hà Nội"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ellipsize="end"
