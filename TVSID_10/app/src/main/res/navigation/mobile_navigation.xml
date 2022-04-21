@@ -22,5 +22,42 @@
         android:id="@+id/dangnhap"
         android:name="com.example.tvsid_10.Dangnhap"
         android:label="fragment_dangnhap"
-        tools:layout="@layout/fragment_dangnhap" />
+        tools:layout="@layout/fragment_dangnhap" >
+        <action
+            android:id="@+id/action_dangnhap_to_dangkytaikhoanFragment"
+            app:destination="@id/dangkytaikhoanFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dangkytaikhoanFragment"
+        android:name="com.example.tvsid_10.DangkytaikhoanFragment"
+        android:label="fragment_dangkytaikhoan"
+        tools:layout="@layout/fragment_dangkytaikhoan" >
+        <action
+            android:id="@+id/action_dangkytaikhoanFragment_to_xemanhdkyFragment"
+            app:destination="@id/xemanhdkyFragment" />
+        <action
+            android:id="@+id/action_dangkytaikhoanFragment_to_dangnhap"
+            app:destination="@id/dangnhap" />
+    </fragment>
+    <fragment
+        android:id="@+id/xemanhdkyFragment"
+        android:name="com.example.tvsid_10.XemanhdkyFragment"
+        android:label="fragment_xemanhdky"
+        tools:layout="@layout/fragment_xemanhdky" >
+        <action
+            android:id="@+id/action_xemanhdkyFragment_to_thongtindangkyFragment"
+            app:destination="@id/thongtindangkyFragment" />
+        <action
+            android:id="@+id/action_xemanhdkyFragment_to_dangkytaikhoanFragment"
+            app:destination="@id/dangkytaikhoanFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/thongtindangkyFragment"
+        android:name="com.example.tvsid_10.ThongtindangkyFragment"
+        android:label="fragment_thongtindangky"
+        tools:layout="@layout/fragment_thongtindangky" >
+        <action
+            android:id="@+id/action_thongtindangkyFragment_to_xemanhdkyFragment"
+            app:destination="@id/xemanhdkyFragment" />
+    </fragment>
 </navigation>

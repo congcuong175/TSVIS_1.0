@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:hint="Năm học">
             <AutoCompleteTextView
-                android:id="@+id/autoCompleteTextView1"
+                android:id="@+id/atctv_namhoc_lich"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="none"
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:hint="Tuần học">
             <AutoCompleteTextView
-                android:id="@+id/autoCompleteTextView"
+                android:id="@+id/atctv_tuanhoc_lich"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="none"

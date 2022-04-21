@@ -15,9 +15,12 @@ public class lich_hoc_adpater extends RecyclerView.Adapter<lich_hoc_adpater.lich
     List<String>list;
     Context context;
 
-    public lich_hoc_adpater(List<String> list, Context context) {
-        this.list = list;
+    public lich_hoc_adpater( Context context) {
         this.context = context;
+    }
+    public void setData(List<String>list){
+        this.list=list;
+        notifyDataSetChanged();
     }
 
     @NonNull

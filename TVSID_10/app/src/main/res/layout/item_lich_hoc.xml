@@ -22,7 +22,7 @@
 
             <TextView
                 android:layout_weight="1"
-                android:id="@+id/ngay1"
+                android:id="@+id/tv_ngay_lichoc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -45,7 +45,7 @@
 
             <TextView
                 android:layout_weight="1"
-                android:id="@+id/buoi1"
+                android:id="@+id/tv_buoi_lichhoc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/baloo2_semibold"
@@ -56,7 +56,7 @@
 
             <TextView
                 android:layout_weight="1"
-                android:id="@+id/tiet1"
+                android:id="@+id/tv_tiet_buoihoc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/baloo2_semibold"
@@ -67,7 +67,7 @@
 
             <TextView
                 android:layout_weight="1"
-                android:id="@+id/gio1"
+                android:id="@+id/tv_thoigian_lichhoc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/baloo2_semibold"
@@ -79,7 +79,7 @@
             <TextView
 
                 android:layout_weight="1"
-                android:id="@+id/mon1"
+                android:id="@+id/tv_tenmon_lichhoc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/baloo2_semibold"
@@ -90,7 +90,7 @@
 
             <TextView
                 android:layout_weight="1"
-                android:id="@+id/phong1"
+                android:id="@+id/tv_phong_lichhoc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -112,7 +112,7 @@
 
             <TextView
                 android:layout_weight="1"
-                android:id="@+id/giao_vien"
+                android:id="@+id/tv_giaovien_lichhoc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"

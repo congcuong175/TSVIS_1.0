@@ -14,6 +14,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.example.tvsid_10.Common.Common;
 
 import java.util.ArrayList;
 
@@ -21,7 +25,9 @@ public class frag_home extends Fragment {
 
     RecyclerView item1,item2;
     diem_adpater diem_adpater;
+    ImageView img_capture_ttcn;
     diem_hoc_adpater diem_hoc_adpater;
+    TextView tv_name_ttcn,tv_date_ttcn,tv_faculty_ttcn,tv_classroom_ttcn,tv_scholastic_ttcn,tv_id_ttcn;
     ArrayList<String> arrayList=new ArrayList<>();
     Dialog dialog;
     AutoCompleteTextView atctv_hocky_ttcn,atctv_namhoc_ttcn,atctv_nganhhoc_ttcn;
@@ -43,11 +49,8 @@ public class frag_home extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        item1=view.findViewById(R.id.item1);
-        item2=view.findViewById(R.id.item2);
-        atctv_hocky_ttcn=view.findViewById(R.id.atctv_hocky_ttcn);
-        atctv_namhoc_ttcn=view.findViewById(R.id.atctv_namhoc_ttcn);
-        atctv_nganhhoc_ttcn=view.findViewById(R.id.atctv_nganhhoc_ttcn);
+        Init(view);
+        setData();
         dialog=new Dialog(getActivity());
         arrayList.add("3");
         arrayList.add("6");
@@ -74,5 +77,27 @@ public class frag_home extends Fragment {
         ArrayAdapter arrayNganhHoc=new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1,nganhHocs);
         atctv_nganhhoc_ttcn.setAdapter(arrayNganhHoc);
 
+    }
+    public void setData(){
+        tv_name_ttcn.setText(Common.sinhVien.getHoTen());
+        tv_date_ttcn.setText(Common.sinhVien.getNgaySinh());
+        tv_faculty_ttcn.setText(Common.sinhVien.getNganhHoc());
+        tv_classroom_ttcn.setText(Common.sinhVien.getLop());
+        tv_scholastic_ttcn.setText(Common.sinhVien.getKhoaHoc());
+        tv_id_ttcn.setText("Mã SV: "+Common.sinhVien.getID());
+    }
+    public void Init(View view){
+        tv_name_ttcn=view.findViewById(R.id.tv_name_ttcn);
+        tv_date_ttcn=view.findViewById(R.id.tv_date_ttcn);
+        tv_faculty_ttcn=view.findViewById(R.id.tv_faculty_ttcn);
+        tv_classroom_ttcn=view.findViewById(R.id.tv_classroom_ttcn);
+        tv_scholastic_ttcn=view.findViewById(R.id.tv_scholastic_ttcn);
+        tv_id_ttcn=view.findViewById(R.id.tv_id_ttcn);
+        item1=view.findViewById(R.id.item1);
+        item2=view.findViewById(R.id.item2);
+        atctv_hocky_ttcn=view.findViewById(R.id.atctv_hocky_ttcn);
+        atctv_namhoc_ttcn=view.findViewById(R.id.atctv_namhoc_ttcn);
+        atctv_nganhhoc_ttcn=view.findViewById(R.id.atctv_nganhhoc_ttcn);
+        img_capture_ttcn=view.findViewById(R.id.img_capture_ttcn);
     }
 }

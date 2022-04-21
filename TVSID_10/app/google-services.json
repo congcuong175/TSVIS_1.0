@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "602977050574",
+    "project_id": "tsvid1",
+    "storage_bucket": "tsvid1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:602977050574:android:17953f86280cc18134959f",
+        "android_client_info": {
+          "package_name": "com.example.tvsid_10"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "602977050574-m7uq9li36s0kg1snhtdvo09ir67mugva.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnnB6s5TAwrwXE4ucgCY9nf6fXXuxB1J0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "602977050574-m7uq9li36s0kg1snhtdvo09ir67mugva.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
