@@ -61,7 +61,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/vien"
+                        android:background="@drawable/viena"
                         android:padding="10dp"
                         android:textColor="@color/black"
                         android:textSize="20dp" />
@@ -76,7 +76,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/vien"
+                        android:background="@drawable/viena"
                         android:padding="10dp"
                         android:textColor="@color/black"
                         android:textSize="20dp" />
@@ -93,7 +93,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/vien"
+                        android:background="@drawable/viena"
                         android:padding="10dp"
                         android:textColor="@color/black"
                         android:textSize="20dp" />
@@ -110,7 +110,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/vien"
+                        android:background="@drawable/viena"
                         android:padding="10dp"
                         android:textColor="@color/black"
                         android:textSize="20dp" />
@@ -127,7 +127,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/vien"
+                        android:background="@drawable/viena"
                         android:padding="10dp"
                         android:textColor="@color/black"
                         android:textSize="20dp" />
@@ -144,7 +144,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/vien"
+                        android:background="@drawable/viena"
                         android:padding="10dp"
                         android:textColor="@color/black"
                         android:textSize="20dp" />
@@ -157,7 +157,7 @@
                     android:layout_marginBottom="30dp"
                     android:background="@drawable/bogoc"
                     android:padding="15dp"
-                    android:backgroundTint="@color/teal_200"
+                    android:backgroundTint="#BAEF7C"
                     android:textColor="@color/black"
                     android:textAllCaps="false"
                     android:textSize="20dp"
