@@ -2,8 +2,12 @@ package com.example.tvsid_10.Api;
 
 import android.net.Uri;
 
+import androidx.annotation.NonNull;
+
 import com.example.tvsid_10.Entity.SinhVien;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -23,11 +27,11 @@ public class FirebaseAPI {
         storageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                storageReference.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
                     @Override
-                    public void onSuccess(Uri uri) {
-                        Uri downloadUrl = uri;
-                        url[0] = downloadUrl.getPath();
+                    public void onComplete(@NonNull Task<Uri> task) {
+                        Uri uri1 = task.getResult();
+                        url[0] = uri1.toString();
                     }
                 });
             }

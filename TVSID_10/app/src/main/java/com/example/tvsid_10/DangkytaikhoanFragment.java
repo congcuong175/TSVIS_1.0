@@ -128,7 +128,7 @@ public class DangkytaikhoanFragment extends Fragment {
                                 Toast.makeText(getContext(), "Lỗi kết  nối", Toast.LENGTH_LONG).show();
                             } else {
                                 Common.sinhVien = response.body();
-                                Navigation.findNavController(view).navigate(R.id.thongtindangkyFragment);
+                                startActivity(new Intent(getContext(),ThongTinDangKyActivity.class));
                             }
                         }
                     }

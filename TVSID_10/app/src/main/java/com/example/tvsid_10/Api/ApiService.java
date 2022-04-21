@@ -36,10 +36,14 @@ public interface ApiService {
     @GET("api/Diems/GetDiem")
     Call<List<Diem>> getAllDiemTheo(@Query("idSV") int idSV, @Query("ky") int ky, @Query("nam") String nam);
 
-    @GET("api/SinhViens/register")
+    @POST("api/SinhViens/Register")
     Call<Integer> register(@Body SinhVien sinhVien);
+
     @GET("api/Diems/GetDiemAll")
     Call<List<Diem>> getAllDiemAll(@Query("idSV") int idSV);
+
+
+
 
     OkHttpClient okHttpClient = new OkHttpClient.Builder()
             .readTimeout(60, TimeUnit.SECONDS)
