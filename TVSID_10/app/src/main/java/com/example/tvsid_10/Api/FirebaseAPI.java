@@ -18,13 +18,20 @@ public class FirebaseAPI {
     }
 
     public String uploadImage(Uri uri, SinhVien sinhVien) {
-        String 
-        storageReference = storageReference.child(sinhVien.getID()+"").child(uri.getLastPathSegment());
+        final String[] url = {""};
+        storageReference = storageReference.child(sinhVien.getID() + "").child(uri.getLastPathSegment());
         storageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
+                storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        Uri downloadUrl = uri;
+                        url[0] = uri.getPath();
+                    }
+                });
             }
         });
+        return url[0];
     }
 }
