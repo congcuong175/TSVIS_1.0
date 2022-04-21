@@ -46,10 +46,10 @@ public interface ApiService {
 
 
     OkHttpClient okHttpClient = new OkHttpClient.Builder()
-            .readTimeout(60, TimeUnit.SECONDS)
-            .connectTimeout(60, TimeUnit.SECONDS)
+            .readTimeout(120, TimeUnit.SECONDS)
+            .connectTimeout(120, TimeUnit.SECONDS)
             .build();
-    ApiService api = new Retrofit.Builder().baseUrl("http://192.168.1.107:5000").
+    ApiService api = new Retrofit.Builder().baseUrl("http://192.168.1.100:5000").
             addConverterFactory(GsonConverterFactory.create(gson)).
             client(okHttpClient).
             build().
