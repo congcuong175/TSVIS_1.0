@@ -39,10 +39,9 @@ public class frag_home extends Fragment {
     ImageView img_capture_ttcn;
     diem_hoc_adpater diem_hoc_adpater;
     Handler handler=new Handler();
-    CircularProgressBar circularProgressBar;
+    CircularProgressBar circularProgressBar,circularProgressBarH10;
     Runnable runnable;
-    TextView tv_name_ttcn,tv_date_ttcn,tv_faculty_ttcn,tv_classroom_ttcn,tv_scholastic_ttcn,tv_id_ttcn;
-    ArrayList<TBDEntity> arrayList=new ArrayList<>();
+    TextView tv_name_ttcn,tv_date_ttcn,tv_faculty_ttcn,tv_classroom_ttcn,tv_scholastic_ttcn,tv_id_ttcn,tv_diemH4_diem,tv_diemH10_diem;
     ArrayList<Diem> diemArrayList=new ArrayList<>();
     AutoCompleteTextView atctv_hocky_ttcn,atctv_namhoc_ttcn,atctv_nganhhoc_ttcn;
     String[] hockys={"1","2"};
@@ -78,12 +77,10 @@ public class frag_home extends Fragment {
         atctv_namhoc_ttcn.setAdapter(arrayNamHoc);
         ArrayAdapter arrayNganhHoc=new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1,nganhHocs);
         atctv_nganhhoc_ttcn.setAdapter(arrayNganhHoc);
-
         circularProgressBar = view.findViewById(R.id.yourCircularProgressbarH4);
+        circularProgressBarH10=view.findViewById(R.id.yourCircularProgressbarH10);
         circularProgressBar.setColor(ContextCompat.getColor(getContext(), R.color.purple_200));
-        int animationDuration = 2500; // 2500ms = 2,5s
-        circularProgressBar.setProgressWithAnimation( (diem_hoc_adpater.DiemTB()/10)*100, animationDuration); // Default duration = 1500ms
-        Toast.makeText(getContext(),diem_hoc_adpater.DiemTB()+"",Toast.LENGTH_SHORT).show();
+        circularProgressBarH10.setColor(ContextCompat.getColor(getContext(), R.color.purple_200));
     }
     public void setData(){
         tv_name_ttcn.setText(Common.sinhVien.getHoTen());
@@ -100,6 +97,8 @@ public class frag_home extends Fragment {
         tv_classroom_ttcn=view.findViewById(R.id.tv_classroom_ttcn);
         tv_scholastic_ttcn=view.findViewById(R.id.tv_scholastic_ttcn);
         tv_id_ttcn=view.findViewById(R.id.tv_id_ttcn);
+        tv_diemH4_diem=view.findViewById(R.id.tv_diemH4_diem);
+        tv_diemH10_diem=view.findViewById(R.id.tv_diemH10_diem);
         item2=view.findViewById(R.id.item2);
         atctv_hocky_ttcn=view.findViewById(R.id.atctv_hocky_ttcn);
         atctv_namhoc_ttcn=view.findViewById(R.id.atctv_namhoc_ttcn);
@@ -113,8 +112,15 @@ public class frag_home extends Fragment {
         handler.postDelayed(runnable=new Runnable() {
             @Override
             public void run() {
+
+                    int animationDuration = 2500; // 2500ms = 2,5s
+                    circularProgressBar.setProgressWithAnimation( (diem_hoc_adpater.DiemTB()/10)*100, animationDuration); // Default duration = 1500ms
+                    circularProgressBarH10.setProgressWithAnimation( (diem_hoc_adpater.DiemTB()/10)*100, animationDuration); // Default duration = 1500ms
+                    tv_diemH10_diem.setText((diem_hoc_adpater.DiemTB())+"");
+                    tv_diemH4_diem.setText((diem_hoc_adpater.DiemTB()/10)*4+"");
+                    handler.postDelayed(runnable,3000);
+
                 loadData();
-                handler.postDelayed(runnable,3000);
             }
         },500);
     }
@@ -143,18 +149,15 @@ public class frag_home extends Fragment {
             });
         } catch (NumberFormatException e) {
             e.printStackTrace();
-            ApiService.apiservice.getAllDiemTheo(Common.sinhVien.getID(),1,"2019-2020").enqueue(new Callback<List<Diem>>() {
+            ApiService.apiservice.getAllDiemAll(Common.sinhVien.getID()).enqueue(new Callback<List<Diem>>() {
                 @Override
                 public void onResponse(Call<List<Diem>> call, Response<List<Diem>> response) {
-                    if(response.body()!=null){
-                        diemArrayList.clear();
-                        for (Diem d:response.body()
-                        ) {
-                            diemArrayList.add(d);
-                        }
-                        diem_hoc_adpater.notifyDataSetChanged();
+                    diemArrayList.clear();
+                    for (Diem d:response.body()
+                    ) {
+                        diemArrayList.add(d);
                     }
-
+                    diem_hoc_adpater.notifyDataSetChanged();
                 }
 
                 @Override
@@ -164,6 +167,7 @@ public class frag_home extends Fragment {
             });
 
         }
+
 
 
     }

@@ -87,6 +87,11 @@ public class diem_hoc_adpater extends RecyclerView.Adapter<diem_hoc_adpater.diem
              ) {
             Tong+=d.getDiem();
         }
-        return Tong/list.size();
+        if(Tong>0){
+            return Tong/list.size();
+        }
+        else {
+            return 0;
+        }
     }
 }

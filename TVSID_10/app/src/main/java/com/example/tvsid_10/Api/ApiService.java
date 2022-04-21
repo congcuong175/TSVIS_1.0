@@ -26,4 +26,6 @@ public interface ApiService {
     Call<SinhVien> getSinhVienById(@Query("id") String id);
     @GET("api/Diems/GetDiem")
     Call<List<Diem>> getAllDiemTheo(@Query("idSV") int idSV,@Query("ky") int ky ,@Query("nam") String nam);
+    @GET("api/Diems/GetDiemAll")
+    Call<List<Diem>> getAllDiemAll(@Query("idSV") int idSV);
 }
