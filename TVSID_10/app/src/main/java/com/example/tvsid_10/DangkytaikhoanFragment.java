@@ -95,7 +95,7 @@ public class DangkytaikhoanFragment extends Fragment {
                 double[] preds = predict();
                 Log.e("Predict", "pred:" + preds[0] + "|Acc:" + preds[1]);
                 if (preds[0] == 0) {
-                    tv_noti.setText("Thẻ sinh viên,acc=" + preds[1] + "%");
+                    tv_noti.setText("Thẻ sinh viên,acc=" + (int)preds[1] + "%");
                 } else {
                     tv_noti.setText("Đây không phải thẻ sinh viên");
                 }
