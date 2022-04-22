@@ -28,6 +28,9 @@
         android:theme="@style/Theme.TVSID_10"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".UpdateThongTin"
+            android:exported="false" />
+        <activity
             android:name=".ThongTinDangKyActivity"
             android:exported="false" />
         <activity

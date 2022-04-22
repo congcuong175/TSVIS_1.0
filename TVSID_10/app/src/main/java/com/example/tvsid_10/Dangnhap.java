@@ -72,15 +72,14 @@ public class Dangnhap extends Fragment {
                     if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                         view.findViewById(R.id.btn_login_login).startAnimation(down);
                         showDialog();
-                        ApiService.apiservice.getSinhVienById(edt_account_login.getText().toString()).enqueue(new Callback<SinhVien>() {
+                        ApiService.apiservice.getSinhVienById(edt_account_login.getText().toString(),edt_password_login.getText().toString()).enqueue(new Callback<SinhVien>() {
                             @Override
                             public void onResponse(Call<SinhVien> call, Response<SinhVien> response) {
                                 if(response.body()!=null){
-                                    if(edt_password_login.getText().toString().equals(response.body().getMatKhau())){
+
                                         Common.sinhVien= response.body();
                                         dialog.dismiss();
                                         startActivity(new Intent(getActivity(),Home.class));
-                                    }
                                 }
                                 else {
                                     dialog.dismiss();

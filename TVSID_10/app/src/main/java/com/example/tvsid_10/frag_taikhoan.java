@@ -23,7 +23,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class frag_taikhoan extends Fragment {
 
-    TextView txt_name,txt_masv,txt_lop,txt_nganhhoc,txt_dangxuat;
+    TextView txt_name,txt_masv,txt_lop,txt_nganhhoc,txt_dangxuat,txt_suu;
     LinearLayout tv_thongtinlichhoc_taikhoan,tv_ketquahoctap_taikhoan;
     CircleImageView profile_image;
     public frag_taikhoan() {
@@ -37,6 +37,7 @@ public class frag_taikhoan extends Fragment {
         txt_masv=view.findViewById(R.id.txt_masv);
         txt_lop=view.findViewById(R.id.txt_lop);
         txt_nganhhoc=view.findViewById(R.id.txt_nganhhoc);
+        txt_suu=view.findViewById(R.id.txt_suu);
         profile_image=view.findViewById(R.id.profile_image);
         txt_dangxuat=view.findViewById(R.id.txt_dangxuat);
         tv_thongtinlichhoc_taikhoan=view.findViewById(R.id.tv_thongtinlichhoc_taikhoan);
@@ -66,6 +67,12 @@ public class frag_taikhoan extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(),Dangnhap.class));
+            }
+        });
+        txt_suu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(),UpdateThongTin.class));
             }
         });
     }

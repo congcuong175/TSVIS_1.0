@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ThongTinDangKyActivity">
-
+    tools:context=".UpdateThongTin">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -62,7 +61,7 @@
                         app:cardCornerRadius="100dp">
 
                         <ImageView
-                            android:id="@+id/img_avatar"
+                            android:id="@+id/img_avatar_update"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:scaleType="fitCenter"
@@ -78,7 +77,7 @@
                         android:textSize="20dp" />
 
                     <EditText
-                        android:id="@+id/edt_id"
+                        android:id="@+id/edt_id_update"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -96,7 +95,7 @@
                         android:textSize="20dp" />
 
                     <EditText
-                        android:id="@+id/edt_name"
+                        android:id="@+id/edt_name_update"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -114,7 +113,7 @@
                         android:textSize="20dp" />
 
                     <EditText
-                        android:id="@+id/edt_date"
+                        android:id="@+id/edt_date_update"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -132,7 +131,7 @@
                         android:textSize="20dp" />
 
                     <EditText
-                        android:id="@+id/edt_faculty"
+                        android:id="@+id/edt_faculty_update"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -151,7 +150,7 @@
 
                     <EditText
 
-                        android:id="@+id/edt_classroom"
+                        android:id="@+id/edt_classroom_update"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -169,7 +168,7 @@
                         android:textSize="20dp" />
 
                     <EditText
-                        android:id="@+id/edt_scholastic"
+                        android:id="@+id/edt_scholastic_update"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -181,13 +180,13 @@
                 </LinearLayout>
 
                 <android.widget.Button
-                    android:id="@+id/btn_confirm"
+                    android:id="@+id/btn_confirm_update"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginBottom="30dp"
                     android:background="@drawable/bogoc"
-                    android:backgroundTint="#B6EC79"
+                    android:backgroundTint="#A8E661"
                     android:padding="15dp"
                     android:text="Xác nhận"
                     android:textAllCaps="false"

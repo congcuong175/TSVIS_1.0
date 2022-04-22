@@ -18,6 +18,7 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.Query;
 
@@ -37,7 +38,7 @@ public interface ApiService {
             .create(ApiService.class);
 
     @GET("api/SinhViens/GetSV")
-    Call<SinhVien> getSinhVienById(@Query("id") String id);
+    Call<SinhVien> getSinhVienById(@Query("id") String id,@Query("pass") String pass);
 
     @GET("api/Diems/GetDiem")
     Call<List<Diem>> getAllDiemTheo(@Query("idSV") int idSV, @Query("ky") int ky, @Query("nam") String nam);
@@ -50,7 +51,8 @@ public interface ApiService {
     @GET("api/LichHos/GetLichHocByTuan")
     Call<List<LichHoc>> getLicHoc(@Query("tuan")String tuan, @Query("id") int id,@Query("nam") String nam);
 
-
+    @PUT("api/SinhViens/Update")
+    Call<Integer> upDate(@Query("id") int id,@Body SinhVien sv);
 
 
     ApiService api = new Retrofit.Builder().baseUrl("http://192.168.1.100:5000").

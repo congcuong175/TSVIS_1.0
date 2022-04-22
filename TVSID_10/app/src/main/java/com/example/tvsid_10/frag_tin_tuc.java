@@ -42,7 +42,9 @@ public class frag_tin_tuc extends Fragment {
         });
         webView=view.findViewById(R.id.web);
         webView.setWebViewClient(new WebViewClient());
+        webView.getSettings().setLoadsImagesAutomatically(true);
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl("http://utehy.edu.vn/#/");
+        webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+        webView.loadUrl("https://www.24h.com.vn/");
     }
 }
