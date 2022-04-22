@@ -12,7 +12,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,7 +27,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LifecycleOwner;
-import androidx.navigation.Navigation;
 
 import com.example.tvsid_10.Api.ApiService;
 import com.example.tvsid_10.Common.Common;
@@ -70,7 +68,7 @@ public class DangkytaikhoanFragment extends Fragment {
     Model model;
     List<String> labels;
     TextView tv_noti;
-    boolean predict = true;
+    boolean predict = false;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -94,55 +92,62 @@ public class DangkytaikhoanFragment extends Fragment {
                 // need to do tasks on the UI thread
                 double[] preds = predict();
                 Log.e("Predict", "pred:" + preds[0] + "|Acc:" + preds[1]);
-                if (preds[0] == 0) {
-                    tv_noti.setText("Thẻ sinh viên,acc=" + (int)preds[1] + "%");
+                if (preds[0] == 0 && preds[1] > 0.95) {
+                    predict = true;
+                    tv_noti.setText("Thẻ sinh viên,acc=" + (int) (preds[1] * 100) + "%");
                 } else {
+                    predict = false;
                     tv_noti.setText("Đây không phải thẻ sinh viên");
                 }
-                handler.postDelayed(this,500);
+                handler.postDelayed(this, 500);
             }
         };
         handler.post(runnable);
     }
+
     private void onClick() {
         btn_cap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ProgressDialog dialog = new ProgressDialog(getContext());
-                dialog.setTitle("Đang chờ");
-                dialog.show();
-                Bitmap bitmap = previewView.getBitmap();
-                String path = MediaStore.Images.Media.insertImage(getContext().getContentResolver(), bitmap, "lalala"+new Random().nextDouble(), null);
-                Uri uri = Uri.parse(path);
-                String realFilePath = RealPathUtils.getRealPath(getContext(), uri);
-                File file = new File(realFilePath);
-                RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
-                MultipartBody.Part body = MultipartBody.Part.createFormData("image", "dmm", requestBody);
-                ApiService.api.detectIDSV(body).enqueue(new Callback<SinhVien>() {
-                    @Override
-                    public void onResponse(Call<SinhVien> call, Response<SinhVien> response) {
-                        if (call.isExecuted()) {
-                            file.delete();
-                            dialog.dismiss();
-                            if (response.body() == null) {
-                                Toast.makeText(getContext(), "Lỗi kết  nối", Toast.LENGTH_LONG).show();
-                            } else {
-                                Common.sinhVien = response.body();
-                                startActivity(new Intent(getContext(),ThongTinDangKyActivity.class));
+                if(predict){
+                    ProgressDialog dialog = new ProgressDialog(getContext());
+                    dialog.setTitle("Đang chờ");
+                    dialog.show();
+                    Bitmap bitmap = previewView.getBitmap();
+                    String path = MediaStore.Images.Media.insertImage(getContext().getContentResolver(), bitmap, "lalala" + new Random().nextDouble(), null);
+                    Uri uri = Uri.parse(path);
+                    String realFilePath = RealPathUtils.getRealPath(getContext(), uri);
+                    File file = new File(realFilePath);
+                    RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+                    MultipartBody.Part body = MultipartBody.Part.createFormData("image", "dmm", requestBody);
+                    ApiService.api.detectIDSV(body).enqueue(new Callback<SinhVien>() {
+                        @Override
+                        public void onResponse(Call<SinhVien> call, Response<SinhVien> response) {
+                            if (call.isExecuted()) {
+                                file.delete();
+                                dialog.dismiss();
+                                if (response.body() == null) {
+                                    Toast.makeText(getContext(), "Lỗi kết  nối", Toast.LENGTH_LONG).show();
+                                } else {
+                                    Common.sinhVien = response.body();
+                                    startActivity(new Intent(getContext(), ThongTinDangKyActivity.class));
+                                }
                             }
                         }
-                    }
 
-                    @Override
-                    public void onFailure(Call<SinhVien> call, Throwable t) {
-                        dialog.dismiss();
-                        Log.e("TAG",t.getMessage());
-                    }
-                });
+                        @Override
+                        public void onFailure(Call<SinhVien> call, Throwable t) {
+                            dialog.dismiss();
+                            Log.e("TAG", t.getMessage());
+                        }
+                    });
+                }
+
             }
         });
 
     }
+
     //khởi tạo model
     private void initilalize() {
         try {
