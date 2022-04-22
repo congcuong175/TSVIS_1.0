@@ -68,7 +68,7 @@ public class ThongTinDangKyActivity extends AppCompatActivity {
                 String khoahoc = edt_scholastic.getText().toString();
                 String nganh = edt_faculty.getText().toString();
                 Log.e("TAG",Common.sinhVien.getAvatar());
-                SinhVien sv = new SinhVien(Common.sinhVien.getAvatar(), hoten, Integer.parseInt(masv), khoahoc, lop, masv, nganh, ngaysinh, true);
+                SinhVien sv = new SinhVien(Common.sinhVien.getAvatar(), hoten, Integer.parseInt(masv), khoahoc, lop, masv, nganh, ngaysinh, false);
                 dialog.show();
                 ApiService.apiservice.register(sv).enqueue(new Callback<Integer>() {
                     @Override

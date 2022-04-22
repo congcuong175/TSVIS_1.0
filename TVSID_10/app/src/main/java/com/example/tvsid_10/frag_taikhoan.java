@@ -2,6 +2,7 @@ package com.example.tvsid_10;
 
 import static com.example.tvsid_10.Home.chipNavigationBar;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -59,6 +60,12 @@ public class frag_taikhoan extends Fragment {
                 chipNavigationBar.setItemSelected(R.id.frag_home,true);
                 Navigation.findNavController(getActivity(),R.id.nav_host_fragment).navigate(R.id.frag_home);
 
+            }
+        });
+        txt_dangxuat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(),Dangnhap.class));
             }
         });
     }
