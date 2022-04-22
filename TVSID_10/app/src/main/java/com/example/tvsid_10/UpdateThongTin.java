@@ -62,7 +62,7 @@ public class UpdateThongTin extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ProgressDialog dialog = new ProgressDialog(UpdateThongTin.this);
-                dialog.setTitle("Đang đăng ký tài khoản");
+                dialog.setTitle("Đang cập nhật tài khoản");
                 String masv = edt_id.getText().toString();
                 String hoten = edt_name.getText().toString();
                 String ngaysinh = edt_date.getText().toString();
@@ -79,6 +79,7 @@ public class UpdateThongTin extends AppCompatActivity {
                             if (response.body() > 0) {
                                 dialog.dismiss();
                                 Toast.makeText(getApplicationContext(), "Thành công", Toast.LENGTH_LONG).show();
+                                Common.sinhVien=sv;
                                 startActivity(new Intent(getApplicationContext(), Home.class));
                             } else {
                                 dialog.dismiss();

@@ -119,13 +119,17 @@ public class frag_home extends Fragment {
                     int animationDuration = 2500; // 2500ms = 2,5s
                     circularProgressBar.setProgressWithAnimation( (diem_hoc_adpater.DiemTB()/10)*100, animationDuration); // Default duration = 1500ms
                     circularProgressBarH10.setProgressWithAnimation( (diem_hoc_adpater.DiemTB()/10)*100, animationDuration); // Default duration = 1500ms
-                    tv_diemH10_diem.setText((diem_hoc_adpater.DiemTB())+"");
-                    tv_diemH4_diem.setText((diem_hoc_adpater.DiemTB()/10)*4+"");
+                    tv_diemH10_diem.setText(FormatDiem(diem_hoc_adpater.DiemTB())+"");
+                    tv_diemH4_diem.setText(FormatDiem((diem_hoc_adpater.DiemTB()/10)*4)+"");
                     handler.postDelayed(runnable,3000);
 
                 loadData();
             }
         },500);
+    }
+    public String FormatDiem(float diem){
+        return Math.ceil(diem*100)/100.0+"";
+
     }
     public void loadData(){
         try {
