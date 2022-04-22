@@ -42,6 +42,13 @@ public class lich_hoc_adpater extends RecyclerView.Adapter<lich_hoc_adpater.lich
         holder.tv_tenmon_lichhoc.setText(s.getTenHocPhan());
         holder.tv_phong_lichhoc.setText(s.getPhong());
         holder.tv_giaovien_lichhoc.setText(s.getPhong());
+        if(s.getTiet().equalsIgnoreCase("Tiết 1 - Tiết 4")||s.getTiet().equalsIgnoreCase("Tiết 1 - Tiết 5"))
+        {
+            holder.tv_buoi_lichhoc.setText("Sáng");
+        }
+        else {
+            holder.tv_buoi_lichhoc.setText("Chiều");
+        }
     }
 
     @Override
