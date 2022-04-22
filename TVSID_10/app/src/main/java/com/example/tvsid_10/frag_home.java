@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.tvsid_10.Api.ApiService;
 import com.example.tvsid_10.Common.Common;
 import com.example.tvsid_10.Entity.Diem;
@@ -39,8 +40,9 @@ public class frag_home extends Fragment {
     ImageView img_capture_ttcn;
     diem_hoc_adpater diem_hoc_adpater;
     Handler handler=new Handler();
-    CircularProgressBar circularProgressBar,circularProgressBarH10;
+
     Runnable runnable;
+    CircularProgressBar circularProgressBar,circularProgressBarH10;
     TextView tv_name_ttcn,tv_date_ttcn,tv_faculty_ttcn,tv_classroom_ttcn,tv_scholastic_ttcn,tv_id_ttcn,tv_diemH4_diem,tv_diemH10_diem;
     ArrayList<Diem> diemArrayList=new ArrayList<>();
     AutoCompleteTextView atctv_hocky_ttcn,atctv_namhoc_ttcn,atctv_nganhhoc_ttcn;
@@ -89,6 +91,7 @@ public class frag_home extends Fragment {
         tv_classroom_ttcn.setText(Common.sinhVien.getLop());
         tv_scholastic_ttcn.setText(Common.sinhVien.getKhoaHoc());
         tv_id_ttcn.setText("Mã SV: "+Common.sinhVien.getID());
+        Glide.with(getContext()).load(Common.sinhVien.getAvatar()).into(img_capture_ttcn);
     }
     public void Init(View view){
         tv_name_ttcn=view.findViewById(R.id.tv_name_ttcn);
@@ -170,5 +173,11 @@ public class frag_home extends Fragment {
 
 
 
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        handler.removeCallbacks(runnable);
     }
 }

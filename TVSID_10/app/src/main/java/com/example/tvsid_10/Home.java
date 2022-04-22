@@ -8,7 +8,7 @@ import android.os.Bundle;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 public class Home extends AppCompatActivity {
-    ChipNavigationBar chipNavigationBar;
+    public static ChipNavigationBar chipNavigationBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

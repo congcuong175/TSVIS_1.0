@@ -1,6 +1,7 @@
 package com.example.tvsid_10.Api;
 
 import com.example.tvsid_10.Entity.Diem;
+import com.example.tvsid_10.Entity.LichHoc;
 import com.example.tvsid_10.Entity.SinhVien;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -21,12 +22,17 @@ import retrofit2.http.Part;
 import retrofit2.http.Query;
 
 public interface ApiService {
+    OkHttpClient okHttpClient = new OkHttpClient.Builder()
+            .readTimeout(120, TimeUnit.SECONDS)
+            .connectTimeout(120, TimeUnit.SECONDS)
+            .build();
     Gson gson = new GsonBuilder()
             .setDateFormat("yyyy-MM-dd HH:mm:ss")
             .create();
     ApiService apiservice = new Retrofit.Builder()
             .baseUrl("https://tsvid-api-kt7.conveyor.cloud/")
             .addConverterFactory(GsonConverterFactory.create(gson))
+    .client(okHttpClient)
             .build()
             .create(ApiService.class);
 
@@ -41,14 +47,12 @@ public interface ApiService {
 
     @GET("api/Diems/GetDiemAll")
     Call<List<Diem>> getAllDiemAll(@Query("idSV") int idSV);
+    @GET("api/LichHos/GetLichHocByTuan")
+    Call<List<LichHoc>> getLicHoc(@Query("tuan")String tuan, @Query("id") int id,@Query("nam") String nam);
 
 
 
 
-    OkHttpClient okHttpClient = new OkHttpClient.Builder()
-            .readTimeout(120, TimeUnit.SECONDS)
-            .connectTimeout(120, TimeUnit.SECONDS)
-            .build();
     ApiService api = new Retrofit.Builder().baseUrl("http://192.168.1.100:5000").
             addConverterFactory(GsonConverterFactory.create(gson)).
             client(okHttpClient).
