@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ad26fea-6082-4a18-9000-7b8300e8b147" name="Default Changelist" comment="" />
+    <list default="true" id="8ad26fea-6082-4a18-9000-7b8300e8b147" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/TVSID_10/app/src/main/java/com/example/tvsid_10/Api/ApiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/TVSID_10/app/src/main/java/com/example/tvsid_10/Api/ApiService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TVSID_10/app/src/main/java/com/example/tvsid_10/feag_lich.java" beforeDir="false" afterPath="$PROJECT_DIR$/TVSID_10/app/src/main/java/com/example/tvsid_10/feag_lich.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TVSID_10/app/src/main/java/com/example/tvsid_10/frag_home.java" beforeDir="false" afterPath="$PROJECT_DIR$/TVSID_10/app/src/main/java/com/example/tvsid_10/frag_home.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

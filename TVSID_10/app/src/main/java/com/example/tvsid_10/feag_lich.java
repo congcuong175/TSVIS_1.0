@@ -142,11 +142,6 @@ public class feag_lich extends Fragment {
         },500);
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        handler.removeCallbacks(runnable);
-    }
 
     public void loadData(){
         ApiService.apiservice.getLicHoc(tuan, Common.sinhVien.getID(),atctv_namhoc_lich.getText().toString()).enqueue(new Callback<List<LichHoc>>() {

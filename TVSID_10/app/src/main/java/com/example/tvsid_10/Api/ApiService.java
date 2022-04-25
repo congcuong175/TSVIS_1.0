@@ -55,7 +55,7 @@ public interface ApiService {
     Call<Integer> upDate(@Query("id") int id,@Body SinhVien sv);
 
 
-    ApiService api = new Retrofit.Builder().baseUrl("http://192.168.1.100:5000").
+    ApiService api = new Retrofit.Builder().baseUrl("http://192.168.43.59:5000").
             addConverterFactory(GsonConverterFactory.create(gson)).
             client(okHttpClient).
             build().

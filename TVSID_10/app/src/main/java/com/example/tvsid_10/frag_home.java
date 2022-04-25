@@ -179,9 +179,5 @@ public class frag_home extends Fragment {
 
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        handler.removeCallbacks(runnable);
-    }
+
 }
