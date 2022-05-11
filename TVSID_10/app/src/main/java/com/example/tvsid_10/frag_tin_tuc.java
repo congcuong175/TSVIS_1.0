@@ -45,6 +45,6 @@ public class frag_tin_tuc extends Fragment {
         webView.getSettings().setLoadsImagesAutomatically(true);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
-        webView.loadUrl("https://www.24h.com.vn/");
+        webView.loadUrl("http://qldaotao.utehy.edu.vn:81/");
     }
 }
