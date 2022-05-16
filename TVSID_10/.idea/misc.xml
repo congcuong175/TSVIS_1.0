@@ -4,9 +4,18 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/NCKH/TSVIS_1.0/TVSID_10/app/src/main/res/layout/activity_detect_card.xml" value="0.18802083333333333" />
+        <entry key="..\:/NCKH/TSVIS_1.0/TVSID_10/app/src/main/res/layout/activity_diem_danh.xml" value="0.2677083333333333" />
+        <entry key="..\:/NCKH/TSVIS_1.0/TVSID_10/app/src/main/res/layout/activity_face_update.xml" value="0.25" />
+        <entry key="..\:/NCKH/TSVIS_1.0/TVSID_10/app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="..\:/NCKH/TSVIS_1.0/TVSID_10/app/src/main/res/layout/activity_thong_tin_dang_ky.xml" value="0.18802083333333333" />
+        <entry key="..\:/NCKH/TSVIS_1.0/TVSID_10/app/src/main/res/layout/fragment_bat_dau.xml" value="0.2453125" />
         <entry key="..\:/NCKH/TSVIS_1.0/TVSID_10/app/src/main/res/layout/fragment_dangkytaikhoan.xml" value="0.33" />
+        <entry key="..\:/NCKH/TSVIS_1.0/TVSID_10/app/src/main/res/layout/fragment_dangnhap.xml" value="0.2677083333333333" />
+        <entry key="..\:/NCKH/TSVIS_1.0/TVSID_10/app/src/main/res/layout/fragment_feag_lich.xml" value="0.2677083333333333" />
+        <entry key="..\:/NCKH/TSVIS_1.0/TVSID_10/app/src/main/res/layout/fragment_frag_home.xml" value="0.2677083333333333" />
+        <entry key="..\:/NCKH/TSVIS_1.0/TVSID_10/app/src/main/res/layout/fragment_frag_taikhoan.xml" value="0.36666666666666664" />
         <entry key="..\:/NCKH/TSVIS_1.0/TVSID_10/app/src/main/res/layout/fragment_thongtindangky.xml" value="0.18802083333333333" />
+        <entry key="..\:/NCKH/TSVIS_1.0/TVSID_10/app/src/main/res/layout/item_face.xml" value="0.36666666666666664" />
         <entry key="..\:/TSVIS_1.0/TSVIS_1.0/TVSID_10/app/src/main/res/drawable-v24/border_id_card_bottom.xml" value="0.1845" />
         <entry key="..\:/TSVIS_1.0/TSVIS_1.0/TVSID_10/app/src/main/res/drawable-v24/border_id_card_top.xml" value="0.1845" />
         <entry key="..\:/TSVIS_1.0/TSVIS_1.0/TVSID_10/app/src/main/res/drawable-v24/border_image.xml" value="0.1845" />

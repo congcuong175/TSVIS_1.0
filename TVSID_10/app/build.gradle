@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'com.google.gms.google-services'
+    id 'org.jetbrains.kotlin.android'
 }
 
 android {
@@ -53,6 +54,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.9.0'
     implementation 'com.squareup.retrofit2:retrofit:2.1.0'
     implementation  'com.squareup.retrofit2:converter-gson:2.1.0'
+    implementation 'com.google.mlkit:face-detection:16.1.5'
     def camerax_version = "1.1.0-beta02"
     // The following line is optional, as the core library is included indirectly by camera-camera2
     implementation "androidx.camera:camera-core:${camerax_version}"
@@ -73,3 +75,4 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.13.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
 }
+apply plugin: 'kotlin-android-extensions'

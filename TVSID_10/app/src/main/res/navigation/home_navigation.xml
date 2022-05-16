@@ -6,22 +6,22 @@
     app:startDestination="@id/frag_home">
     <fragment
         android:id="@+id/frag_home"
-        android:name="com.example.tvsid_10.frag_home"
+        android:name="com.example.tvsid_10.Fragment.frag_home"
         android:label="fragment_frag_home"
         tools:layout="@layout/fragment_frag_home" />
     <fragment
         android:id="@+id/feag_lich"
-        android:name="com.example.tvsid_10.feag_lich"
+        android:name="com.example.tvsid_10.Fragment.feag_lich"
         android:label="fragment_feag_lich"
         tools:layout="@layout/fragment_feag_lich" />
     <fragment
         android:id="@+id/frag_taikhoan"
-        android:name="com.example.tvsid_10.frag_taikhoan"
+        android:name="com.example.tvsid_10.Fragment.frag_taikhoan"
         android:label="fragment_frag_taikhoan"
         tools:layout="@layout/fragment_frag_taikhoan" />
     <fragment
         android:id="@+id/frag_tin_tuc"
-        android:name="com.example.tvsid_10.frag_tin_tuc"
+        android:name="com.example.tvsid_10.Fragment.frag_tin_tuc"
         android:label="fragment_frag_tin_tuc"
         tools:layout="@layout/fragment_frag_tin_tuc" />
 </navigation>

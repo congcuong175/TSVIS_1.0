@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFACE"
-    tools:context=".frag_taikhoan">
+    tools:context=".Fragment.frag_taikhoan">
 
 
     <androidx.core.widget.NestedScrollView
@@ -133,6 +133,34 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/baloo2_semibold"
                         android:text="Thông tin lịch học"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="20dp"
+                        android:src="@drawable/ic_chevron_left" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/tv_capnhatkhuonmat"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/btn_435"
+                    android:backgroundTint="@color/white"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/baloo2_semibold"
+                        android:text="Cập nhật khuôn mặt"
                         android:textColor="@color/black"
                         android:textSize="15dp" />
 

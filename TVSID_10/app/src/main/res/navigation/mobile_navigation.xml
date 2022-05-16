@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/bat_dau"
-        android:name="com.example.tvsid_10.Bat_dau"
+        android:name="com.example.tvsid_10.Fragment.Bat_dau"
         android:label="fragment_bat_dau"
         tools:layout="@layout/fragment_bat_dau" >
         <action
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/dangnhap"
-        android:name="com.example.tvsid_10.Dangnhap"
+        android:name="com.example.tvsid_10.Fragment.Dangnhap"
         android:label="fragment_dangnhap"
         tools:layout="@layout/fragment_dangnhap" >
         <action
@@ -29,7 +29,7 @@
     </fragment>
     <fragment
         android:id="@+id/dangkytaikhoanFragment"
-        android:name="com.example.tvsid_10.DangkytaikhoanFragment"
+        android:name="com.example.tvsid_10.Fragment.DangkytaikhoanFragment"
         android:label="fragment_dangkytaikhoan"
         tools:layout="@layout/fragment_dangkytaikhoan" >
         <action

@@ -28,16 +28,22 @@
         android:theme="@style/Theme.TVSID_10"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".UpdateThongTin"
+            android:name=".Activity.DiemDanhActivity"
             android:exported="false" />
         <activity
-            android:name=".ThongTinDangKyActivity"
+            android:name=".Activity.FaceUpdateActivity"
             android:exported="false" />
         <activity
-            android:name=".Home"
+            android:name=".Activity.UpdateThongTin"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.ThongTinDangKyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Home"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
