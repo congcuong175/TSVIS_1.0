@@ -59,7 +59,6 @@ public class Dangnhap extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        startActivity(new Intent(getContext(), FaceUpdateActivity.class));
         btn_register_login=view.findViewById(R.id.btn_register_login);
         edt_password_login=view.findViewById(R.id.edt_password_login);
         Animation animator= AnimationUtils.loadAnimation(getActivity(), R.anim.zoom_in);
