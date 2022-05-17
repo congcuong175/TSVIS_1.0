@@ -1,13 +1,17 @@
 package com.example.tvsid_10.Activity
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.ProgressDialog
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
+import android.view.View
+import android.widget.Toast
 import androidx.annotation.NonNull
+import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
@@ -22,10 +26,11 @@ import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.face.FaceDetection
 import com.google.mlkit.vision.face.FaceDetector
 import com.google.mlkit.vision.face.FaceDetectorOptions
+import kotlinx.android.synthetic.main.activity_face_update.*
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.io.IOException
-import kotlinx.android.synthetic.main.activity_face_update.*
+
 class FaceUpdateActivity : AppCompatActivity() {
     lateinit var cameraProviderFuture: ListenableFuture<ProcessCameraProvider>
     var bitmapList: ArrayList<Bitmap> = ArrayList()
@@ -33,7 +38,8 @@ class FaceUpdateActivity : AppCompatActivity() {
     lateinit var highAccuractiyOpts: FaceDetectorOptions
     lateinit var faceAdapter: FaceAdapter
     lateinit var faceDetector: FaceDetector
-
+    var success = false
+    var count_crop = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_face_update)
@@ -48,6 +54,7 @@ class FaceUpdateActivity : AppCompatActivity() {
         instanceModel()
         loadAdapter()
         onClick()
+
     }
 
 
@@ -57,10 +64,31 @@ class FaceUpdateActivity : AppCompatActivity() {
         rv_face.adapter = faceAdapter
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun onClick() {
+        btn_cap.setOnClickListener {
+            val handler = Handler()
+            var runnable:Runnable = object :Runnable{
+                override fun run() {
+                    val bitmap = preview_camera.bitmap
+                    if(bitmap!=null){
+                        cropFace(bitmap)
+                        count_crop++
+                    }
+                    if(count_crop==10){
+                        onStop()
+                    }
+                    handler.postDelayed(this,1000)
 
-        btn_cap.setOnClickListener({
-            var bitmap = preview_camera.bitmap
+                }
+            }
+            handler.post(runnable)
+            btn_cap.visibility = View.GONE
+        }
+    }
+    private fun cropFace(bitmap: Bitmap){
+
+        if(bitmap!=null){
             val image = InputImage.fromBitmap(bitmap!!, 0)
             faceDetector.process(image).addOnSuccessListener({ faces ->
                 for (face in faces) {
@@ -69,25 +97,38 @@ class FaceUpdateActivity : AppCompatActivity() {
                     val right = bounds.right.toFloat()
                     val top = bounds.top.toFloat()
                     val bottom = bounds.bottom.toFloat()
-                    var faceCrop = Bitmap.createBitmap(
-                        bitmap,
-                        left.toInt(),
-                        top.toInt(),
-                        (right - left).toInt(),
-                        (bottom - top).toInt()
-                    )
-                    bitmapList.add(faceCrop)
-                    faceAdapter.notifyDataSetChanged()
+                    if(left < 0 || top < 0 || bottom > bitmap.getHeight() || right > bitmap.getWidth() || bitmap.getWidth() <= 0 || bitmap.getHeight() <= 0){
+
+                    }else{
+                        if (right - left <= 0 || bottom - top <= 0){
+
+                        }
+                        else{
+                            var faceCrop = Bitmap.createBitmap(
+                                bitmap,
+                                left.toInt(),
+                                top.toInt(),
+                                (right - left).toInt(),
+                                (bottom - top).toInt()
+                            )
+                            bitmapList.add(faceCrop)
+                            faceAdapter.notifyDataSetChanged()
+                        }
+                    }
                     if (bitmapList.size == 5) {
+                        val progressBar = ProgressDialog(this)
+                        progressBar.setTitle("Đang cập nhật khuôn mặt")
+                        progressBar.setMessage("Vui lòng giữ điện thoại")
+                        progressBar.show()
                         getFeatures()
+                        progressBar.dismiss()
                     }
                     break
                 }
             })
+        }
 
-        })
     }
-
     private fun duDoan(bitmap: Bitmap) {
         val byteBuffer =
             Common.convertBitmapToByteBuffer(bitmap)
@@ -110,16 +151,18 @@ class FaceUpdateActivity : AppCompatActivity() {
             prob[i] = tmp[i]
             pred[i] = findIndex(outputBuffer.floatArray, tmp[i])
         }
-        Log.e("predict", "acc=" + acc(pred, prob))
+        Log.e("PredictSuccess", "acc=" + acc(pred, prob))
+        if (acc(pred, prob) > 0.5) {
+            Log.e("PredictSuccess","Thành công")
+            Toast.makeText(applicationContext, "Cập nhật khuôn mặt thành công", Toast.LENGTH_LONG).show()
+            success = true
+            finish()
 
-
+        }
 
     }
 
     private fun getFeatures() {
-        val progressBar = ProgressDialog(this)
-        progressBar.setTitle("Đang cập nhật khuôn mặt")
-        progressBar.show()
         Common.predicts = ArrayList()
         for (bitmap in bitmapList) {
             val byteBuffer = Common.convertBitmapToByteBuffer(bitmap)
@@ -145,13 +188,65 @@ class FaceUpdateActivity : AppCompatActivity() {
                 )
             }
         }
-        progressBar.dismiss()
-        finish()
         val set: Set<Int> = LinkedHashSet(Common.predicts)
         Common.predicts = ArrayList(set)
         for (i in Common.predicts.indices) {
             Log.e("predict", Common.predicts[i].toString() + "")
         }
+        testFace()
+    }
+
+    var count = 0
+    private fun testFace() {
+        val handler = Handler()
+        val runnable: Runnable = object : Runnable {
+            override fun run() {
+                // need to do tasks on the UI thread
+                var bitmap = preview_camera.bitmap
+                if (bitmap != null) {
+                    val image = InputImage.fromBitmap(bitmap!!, 0)
+                    faceDetector.process(image).addOnSuccessListener({ faces ->
+                        for (face in faces) {
+                            val bounds = face.boundingBox
+                            val left = bounds.left.toFloat()
+                            val right = bounds.right.toFloat()
+                            val top = bounds.top.toFloat()
+                            val bottom = bounds.bottom.toFloat()
+
+                            if (left < 0 || top < 0 || bottom > bitmap.getHeight() || right > bitmap.getWidth() || bitmap.getWidth() <= 0 || bitmap.getHeight() <= 0) {
+                                duDoan(bitmap)
+                            } else {
+                                if (right - left <= 0 || bottom - top <= 0) {
+                                    duDoan(bitmap)
+                                } else {
+                                    var faceCrop = Bitmap.createBitmap(
+                                        bitmap,
+                                        left.toInt(),
+                                        top.toInt(),
+                                        (right - left).toInt(),
+                                        (bottom - top).toInt()
+                                    )
+                                    duDoan(faceCrop)
+                                }
+                            }
+                            break
+                        }
+                    })
+                }
+                count++
+                handler.postDelayed(this, 1000)
+                if (count == 10&&!success) {
+                    Log.e("Predict","Thất bại")
+                    Toast.makeText(
+                        applicationContext,
+                        "Cập nhật khuôn mặt thất bại",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    finish()
+                }
+            }
+        }
+        handler.post(runnable)
     }
 
     private fun setupFaceDetector() {
@@ -205,7 +300,7 @@ class FaceUpdateActivity : AppCompatActivity() {
                 }
             }
         }
-        return count.toFloat()/Common.predicts.size
+        return count.toFloat() / Common.predicts.size
     }
 
 

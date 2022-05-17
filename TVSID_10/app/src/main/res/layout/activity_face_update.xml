@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Activity.FaceUpdateActivity">
 
     <androidx.camera.view.PreviewView
@@ -12,17 +12,20 @@
         android:layout_height="match_parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:id="@+id/rv_face"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:orientation="horizontal" />
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
+        android:textColor="@color/white"
+        android:backgroundTint="#80FFEE58"
         android:id="@+id/btn_cap"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/ic_camera" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="20dp"
+        android:background="@drawable/bogoc"
+        android:text="Bắt đầu cập nhật khuôn mặt" />
 </RelativeLayout>

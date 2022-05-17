@@ -62,22 +62,29 @@ class DiemDanhActivity : AppCompatActivity() {
                             val right = bounds.right.toFloat()
                             val top = bounds.top.toFloat()
                             val bottom = bounds.bottom.toFloat()
-                            if(right-left<=bitmap.width||bottom-top<=bitmap.height){
-                                var faceCrop = Bitmap.createBitmap(
-                                    bitmap,
-                                    left.toInt(),
-                                    top.toInt(),
-                                    (right - left).toInt(),
-                                    (bottom - top).toInt()
-                                )
-                                duDoan(faceCrop)
+                            if(left < 0 || top < 0 || bottom > bitmap.getHeight() || right > bitmap.getWidth() || bitmap.getWidth() <= 0 || bitmap.getHeight() <= 0){
+                                duDoan(bitmap)
+                            }else{
+                                if (right - left <= 0 || bottom - top <= 0){
+                                    duDoan(bitmap)
+                                }
+                                else{
+                                    var faceCrop = Bitmap.createBitmap(
+                                        bitmap,
+                                        left.toInt(),
+                                        top.toInt(),
+                                        (right - left).toInt(),
+                                        (bottom - top).toInt()
+                                    )
+                                    duDoan(faceCrop)
+                                }
                             }
                             break
                         }
                     })
                 }
 
-                handler.postDelayed(this, 1000)
+                handler.postDelayed(this, 500)
             }
         }
         handler.post(runnable)
@@ -106,7 +113,7 @@ class DiemDanhActivity : AppCompatActivity() {
             pred[i] = findIndex(outputBuffer.floatArray, tmp[i])
         }
         Log.e("predict", "acc=" + acc(pred, prob))
-        if(acc(pred,prob)>0.6){
+        if(acc(pred,prob)>0.5){
            finish()
             Toast.makeText(applicationContext,"Điểm danh thành công",Toast.LENGTH_LONG).show()
         }
